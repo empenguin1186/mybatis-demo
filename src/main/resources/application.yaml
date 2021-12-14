@@ -1,1 +1,12 @@
-
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/book_manager?useSSL=false
+    username: ${DATASOURCE_USER:user}
+    password: ${DATASOURCE_PASSWORD:pswd}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 500
+      max-lifetime: 60000
+      maximum-pool-size: 512
+  jackson:
+    property-naming-strategy: SNAKE_CASE
