@@ -89,4 +89,15 @@ internal class BookWithRentalMapperTest {
             assertThat(actualOne.returnDeadline).isEqualTo(rentalRecord.returnDeadline)
         }.assertAll()
     }
+
+    @Test
+    fun `Recordが1つもない`() {
+        // when
+        val actual = bookWithRentalMapper.select()
+
+        // then
+        SoftAssertions().apply {
+            assertThat(actual.size).isEqualTo(0)
+        }.assertAll()
+    }
 }
