@@ -61,7 +61,7 @@ internal class BookWithRentalMapperTest {
             "コトリン太郎",
             now
         )
-        val timeNow = LocalDateTime.now()
+        val timeNow = LocalDateTime.of(2021, 12, 16, 23, 0, 0)
         val rentalRecord = RentalRecord(
             100,
             1,
