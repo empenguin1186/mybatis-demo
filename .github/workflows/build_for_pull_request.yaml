@@ -23,4 +23,4 @@ jobs:
           java-version: 17
 
       - name: Build with Gradle
-        run: ./gradlew build -DDB_TEST_ENABLE=$DB_TEST_ENABLE
+        run: ./gradlew build --stacktrace --info --scan
