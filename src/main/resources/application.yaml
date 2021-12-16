@@ -8,5 +8,6 @@ spring:
       connection-timeout: 500
       max-lifetime: 60000
       maximum-pool-size: 512
-  jackson:
-    property-naming-strategy: SNAKE_CASE
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
