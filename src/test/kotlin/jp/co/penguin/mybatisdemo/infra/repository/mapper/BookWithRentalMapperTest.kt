@@ -47,6 +47,7 @@ internal class BookWithRentalMapperTest {
             registry.add("spring.datasource.url", mysqlContainer::getJdbcUrl)
             registry.add("spring.datasource.username", mysqlContainer::getUsername)
             registry.add("spring.datasource.password", mysqlContainer::getPassword)
+            registry.add("mybatis.configuration.map-underscore-to-camel-case") { true }
         }
     }
 
@@ -60,7 +61,7 @@ internal class BookWithRentalMapperTest {
             "コトリン太郎",
             now
         )
-        val timeNow = LocalDateTime.now()
+        val timeNow = LocalDateTime.of(2021, 12, 16, 23, 0, 0)
         val rentalRecord = RentalRecord(
             100,
             1,
@@ -87,6 +88,17 @@ internal class BookWithRentalMapperTest {
             assertThat(actualOne.userId).isEqualTo(rentalRecord.userId)
             assertThat(actualOne.rentalDateTime).isEqualTo(rentalRecord.rentalDatetime)
             assertThat(actualOne.returnDeadline).isEqualTo(rentalRecord.returnDeadline)
+        }.assertAll()
+    }
+
+    @Test
+    fun `Recordが1つもない`() {
+        // when
+        val actual = bookWithRentalMapper.select()
+
+        // then
+        SoftAssertions().apply {
+            assertThat(actual.size).isEqualTo(0)
         }.assertAll()
     }
 }

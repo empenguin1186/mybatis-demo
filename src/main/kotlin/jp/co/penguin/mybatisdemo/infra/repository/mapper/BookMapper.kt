@@ -14,7 +14,7 @@ interface BookMapper {
             #{id},
             #{title},
             #{author},
-            #{releaseDate},
+            #{releaseDate}
         )
     """)
     fun insert(bookRecord: BookRecord)
