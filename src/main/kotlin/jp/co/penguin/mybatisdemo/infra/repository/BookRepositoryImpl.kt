@@ -18,6 +18,12 @@ class BookRepositoryImpl(
         return bookWithRentalMapper.select().map { toModel(it) }
     }
 
+    override fun findWithRental(id: Long): BookWithRental? {
+        return bookWithRentalMapper.selectByPrimaryKey(id)?.let {
+            toModel(it)
+        }
+    }
+
     private fun toModel(record: BookWithRentalRecord): BookWithRental {
         val book = Book(
             record.id!!,
