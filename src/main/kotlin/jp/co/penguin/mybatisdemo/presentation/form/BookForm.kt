@@ -1,5 +1,6 @@
 package jp.co.penguin.mybatisdemo.presentation.form
 
+import jp.co.penguin.mybatisdemo.domain.model.Book
 import jp.co.penguin.mybatisdemo.domain.model.BookWithRental
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -45,3 +46,12 @@ data class RentalInfo(
     val rentalDatetime: LocalDateTime,
     val rentalDeadline: LocalDateTime,
 )
+
+data class RegisterBookRequest(
+    val id: Long,
+    val title: String,
+    val author: String,
+    val releaseDate: LocalDate
+) {
+    fun toModel() = Book(id, title, author, releaseDate)
+}
