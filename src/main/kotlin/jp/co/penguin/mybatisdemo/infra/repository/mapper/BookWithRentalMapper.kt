@@ -22,4 +22,19 @@ interface BookWithRentalMapper {
         ON b.id = r.book_id
     """)
     fun select(): List<BookWithRentalRecord>
+
+    @Select("""
+        SELECT
+            b.id,
+            b.title,
+            b.author,
+            b.release_date,
+            r.user_id,
+            r.rental_datetime,
+            r.return_deadline
+        FROM book b LEFT JOIN rental r
+        ON b.id = r.book_id
+        WHERE b.id = #{id}
+    """)
+    fun selectByPrimaryKey(id: Long): BookWithRentalRecord?
 }

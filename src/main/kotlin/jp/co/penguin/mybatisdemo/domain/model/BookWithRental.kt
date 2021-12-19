@@ -1,5 +1,8 @@
 package jp.co.penguin.mybatisdemo.domain.model
 
+import java.time.LocalDate
+import java.time.LocalDateTime
+
 data class BookWithRental(
     private val book: Book,
     private val rental: Rental?
@@ -15,4 +18,16 @@ data class BookWithRental(
 
     val isRental: Boolean
         get() = rental != null
+
+    val releaseDate: LocalDate
+        get() = book.releaseDate
+
+    val userId: Long?
+        get() = rental?.userId
+
+    val rentalDateTime: LocalDateTime?
+        get() = rental?.rentalDateTime
+
+    val rentalDeadline: LocalDateTime?
+        get() = rental?.rentalDeadline
 }
