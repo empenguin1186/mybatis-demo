@@ -7,6 +7,7 @@ import jp.co.penguin.mybatisdemo.infra.repository.mapper.BookMapper
 import jp.co.penguin.mybatisdemo.infra.repository.mapper.BookWithRentalMapper
 import jp.co.penguin.mybatisdemo.infra.repository.record.BookRecord
 import org.springframework.stereotype.Repository
+import java.time.LocalDate
 
 @Suppress("SpringJavaInjectionPointsAutowiringInspection")
 @Repository
@@ -29,5 +30,9 @@ class BookRepositoryImpl(
         BookRecord.createByModel(book).apply {
             bookMapper.insert(this)
         }
+    }
+
+    override fun update(id: Long, title: String?, author: String?, releaseDate: LocalDate?) {
+        bookMapper.update(id, title, author, releaseDate)
     }
 }

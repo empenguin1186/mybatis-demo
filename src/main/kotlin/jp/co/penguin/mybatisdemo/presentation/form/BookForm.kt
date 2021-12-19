@@ -55,3 +55,9 @@ data class RegisterBookRequest(
 ) {
     fun toModel() = Book(id, title, author, releaseDate)
 }
+
+data class UpdateBookRequest(
+    val title: String?,
+    val author: String?,
+    val releaseDate: LocalDate?
+)
