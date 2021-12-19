@@ -35,4 +35,8 @@ class BookRepositoryImpl(
     override fun update(id: Long, title: String?, author: String?, releaseDate: LocalDate?) {
         bookMapper.update(id, title, author, releaseDate)
     }
+
+    override fun delete(id: Long) {
+        bookMapper.delete(id)
+    }
 }

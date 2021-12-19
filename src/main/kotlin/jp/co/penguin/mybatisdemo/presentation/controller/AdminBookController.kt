@@ -4,6 +4,7 @@ import jp.co.penguin.mybatisdemo.application.service.AdminBookService
 import jp.co.penguin.mybatisdemo.presentation.form.RegisterBookRequest
 import jp.co.penguin.mybatisdemo.presentation.form.UpdateBookRequest
 import org.springframework.web.bind.annotation.CrossOrigin
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
@@ -26,5 +27,10 @@ class AdminBookController(
     @PutMapping("/{book_id}")
     fun update(@PathVariable("book_id") bookId: Long, @RequestBody request: UpdateBookRequest) {
         adminBookService.update(bookId, request.title, request.author, request.releaseDate)
+    }
+
+    @DeleteMapping("/{book_id}")
+    fun delete(@PathVariable("book_id") bookId: Long) {
+        adminBookService.delete(bookId)
     }
 }

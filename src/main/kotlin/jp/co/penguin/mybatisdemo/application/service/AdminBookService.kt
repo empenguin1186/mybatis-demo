@@ -23,4 +23,10 @@ class AdminBookService(
         bookRepository.findWithRental(id) ?: throw IllegalArgumentException("存在しない書籍ID: $id")
         bookRepository.update(id, title, author, releaseDate)
     }
+
+    @Transactional
+    fun delete(id: Long) {
+        bookRepository.findWithRental(id) ?: throw IllegalArgumentException("存在しない書籍ID: $id")
+        bookRepository.delete(id)
+    }
 }

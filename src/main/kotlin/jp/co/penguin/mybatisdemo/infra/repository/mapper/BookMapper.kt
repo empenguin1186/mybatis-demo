@@ -1,6 +1,7 @@
 package jp.co.penguin.mybatisdemo.infra.repository.mapper
 
 import jp.co.penguin.mybatisdemo.infra.repository.record.BookRecord
+import org.apache.ibatis.annotations.Delete
 import org.apache.ibatis.annotations.Insert
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Update
@@ -29,4 +30,7 @@ interface BookMapper {
         WHERE id = #{id}   
     """)
     fun update(id: Long, title: String?, author: String?, releaseDate: LocalDate?)
+
+    @Delete("""DELETE FROM book WHERE id = #{id}""")
+    fun delete(id: Long)
 }
