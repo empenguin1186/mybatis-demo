@@ -44,7 +44,7 @@ data class BookManagerUserDetails private constructor(
     }
 
     override fun getPassword(): String {
-        return this.password
+        return this.pass
     }
 
     override fun isAccountNonExpired(): Boolean {
