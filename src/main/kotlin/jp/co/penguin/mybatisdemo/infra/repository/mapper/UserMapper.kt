@@ -11,4 +11,7 @@ interface UserMapper {
 
     @Select("""SELECT * FROM user WHERE email = #{email}""")
     fun findByEmail(email: String): UserRecord
+
+    @Select("""SELECT * FROM user WHERE id = #{id}""")
+    fun findByPrimaryKey(id: Long): UserRecord
 }

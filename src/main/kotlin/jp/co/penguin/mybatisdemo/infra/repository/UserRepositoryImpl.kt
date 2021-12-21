@@ -14,4 +14,9 @@ class UserRepositoryImpl(
         val userRecord = userMapper.findByEmail(email)
         return userRecord?.toModel()
     }
+
+    override fun find(id: Long): User? {
+        val userRecord = userMapper.findByPrimaryKey(id)
+        return userRecord?.toModel()
+    }
 }
