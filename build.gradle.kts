@@ -42,6 +42,11 @@ dependencies {
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
 	testImplementation("org.testcontainers:testcontainers:1.16.2")
 	testImplementation("org.testcontainers:junit-jupiter:1.16.2")
+
+	implementation("org.springframework.boot:spring-boot-starter-security")
+	// https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis
+	implementation("org.springframework.session:spring-session-data-redis:2.6.0")
+	implementation("redis.clients:jedis")
 }
 
 tasks.withType<KotlinCompile> {

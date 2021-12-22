@@ -9,5 +9,4 @@ class MybatisDemoApplicationTests {
 	@Test
 	fun contextLoads() {
 	}
-
 }
