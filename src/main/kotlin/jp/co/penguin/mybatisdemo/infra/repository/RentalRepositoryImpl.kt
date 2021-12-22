@@ -15,4 +15,8 @@ class RentalRepositoryImpl(
     override fun startRental(rental: Rental) {
         rentalMapper.insert(RentalRecord.createByModel(rental))
     }
+
+    override fun endRental(bookId: Long, userId: Long) {
+        rentalMapper.delete(bookId, userId)
+    }
 }
