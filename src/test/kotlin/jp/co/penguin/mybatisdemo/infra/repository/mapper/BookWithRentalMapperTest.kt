@@ -30,7 +30,6 @@ internal class BookWithRentalMapperTest {
     @Autowired
     private lateinit var rentalMapper: RentalMapper
 
-
     companion object {
         @Container
         @JvmStatic
